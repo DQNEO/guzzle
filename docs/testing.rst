@@ -37,8 +37,7 @@ a response or exception by shifting return values off of a queue.
         new RequestException("Error Communicating with Server", new Request('GET', 'test'))
     ]);
 
-    $handler = HandlerStack::create($mock);
-    $client = new Client(['handler' => $handler]);
+    $client = new Client(['handler' => $mock]);
 
     // The first request is intercepted with the first response.
     echo $client->request('GET', '/')->getStatusCode();
